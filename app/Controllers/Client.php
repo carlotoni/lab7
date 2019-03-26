@@ -12,7 +12,7 @@ class Client extends Controller
 //        $price = $_POST[10];
 
 # data needs to be POSTed to the service
-        $data = array("order" => "TEST", "quantity" => 9, "price" => 10);
+        $data = array("order" => "TEST2", "quantity" => 9, "price" => 10);
         $data_string = json_encode($data);
 
         $ch = curl_init('http://localhost:8080/server/work');
