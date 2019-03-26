@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CodeIgniter 4 "Dev" Application Starter
 
 ## What is CodeIgniter?
@@ -61,3 +62,6 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
 - xml (enabled by default - don't turn it off)
+=======
+# lab7
+>>>>>>> fe8bc29fa005267855cf9705b889282c1686471f

@@ -1,6 +1,10 @@
 MIT License
 
+<<<<<<< HEAD
 Copyright (c) 2018 CodeIgniter 4 web framework
+=======
+Copyright (c) 2019 carlotoni
+>>>>>>> fe8bc29fa005267855cf9705b889282c1686471f
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

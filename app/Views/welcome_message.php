@@ -72,7 +72,12 @@
 			<h1>Welcome to Lab 7</h1>
 
 			<div class="cont">
+<<<<<<< HEAD
                 <a href="\client">Test!</a>
+=======
+                <a href="\client">Client</a>
+                <a href="\server\work">Server</a>
+>>>>>>> fe8bc29fa005267855cf9705b889282c1686471f
 			</div>
 
 		</div>
