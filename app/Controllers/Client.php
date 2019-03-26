@@ -1,15 +1,6 @@
 <?php
 namespace App\Controllers;
 use CodeIgniter\Controller;
-<<<<<<< HEAD
-use CodeIgniter\API\ResponseTrait;
-
-class Client extends Controller
-{
-    use ResponseTrait;
-}
-=======
-use CodeIgniter\HTTP\CURLRequest;
 
 class Client extends Controller
 {
@@ -52,6 +43,3 @@ class Client extends Controller
 //        return $response->getBody();
 //    }
 }
-
-
->>>>>>> fe8bc29fa005267855cf9705b889282c1686471f
