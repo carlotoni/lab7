@@ -12,8 +12,10 @@
     ],
    "require": {
         "php": ">=7.2",
-        "codeigniter4/codeigniter4": "dev-master"
-    },
+        "codeigniter4/codeigniter4": "dev-master",
+     "ext-curl": "*",
+     "ext-json": "*"
+   },
     "require-dev": {
         "mikey179/vfsstream": "1.6.*",
         "phpunit/phpunit": "^7.0"
