@@ -36,18 +36,20 @@ class Server extends Controller
 //        $xml = json_encode($xml);
 //        $json = json_encode($json);
 
-        $counter = 0;
-
 //        $data = array($_REQUEST);
 
-        foreach ($_REQUEST as $order) {
-            echo "Oder ";
-            echo $counter;
-            echo ") ";
-            echo $order;
-            echo "\n";
-            $counter++;
-        }
+//        $counter = 0;
+//
+//        foreach ($_REQUEST as $order) {
+//            echo "Order ";
+//            echo $counter;
+//            echo ") ";
+//            echo $order;
+//            echo "\n";
+//            $counter++;
+//        }
 //        echo $_REQUEST;
+
+        return json_encode($_REQUEST);
     }
 }
