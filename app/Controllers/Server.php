@@ -38,7 +38,7 @@ class Server extends Controller
 //
 //        $counter = 0;
 //
-//        $data = array($form, $xml, $json);
+//        $data = array($_REQUEST);
 //
 //        foreach ($data as $order) {
 //            echo $counter;
@@ -46,7 +46,6 @@ class Server extends Controller
 //            echo "\n";
 //            $counter++;
 //        }
-
-        return json_encode($_REQUEST);
+        echo $_REQUEST;
     }
 }
