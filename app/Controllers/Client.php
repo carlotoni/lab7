@@ -26,8 +26,8 @@ class Client extends Controller
 //                'order' => 'test',
 //                'quantity' => 1,
 //                'price' => 11],
-            $form,
-            $xml,
+//            $form,
+//            $xml,
             $json
         ]);
 
