@@ -2,14 +2,11 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
-
-use App\Models\WorkModel;
+use function Sodium\add;
 
 class Server extends Controller
 {
     use ResponseTrait;
-<<<<<<< HEAD
-=======
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
@@ -17,17 +14,42 @@ class Server extends Controller
     }
 
     public function work() {
-//        $client = \Config\Services::curlrequest();
+
+//        $form = [
+//            'order' => 'test',
+//            'quantity' => 1,
+//            'price' => 11
+//        ];
 //
-//        $response = $client->request('GET', base_url(), [
-//            'order' => ['name', 'quantity', 'price']
-//        ]);
+//        $xml = new \SimpleXMLElement('<order/>');
+//        $xml -> order = 'test2';
+//        $xml -> quantity = 2;
+//        $xml -> price = 12;
 //
-//        echo $response->getStatusCode();
-//        echo $response->getBody();
-//        echo $response->getHeader('Content-Type');
-//        $language = $response->negotiateLanguage(['en', 'fr']);
+//        $json = array(
+//            'order'=>'test3',
+//            'quantity'=>3,
+//            'price'=>13
+//        );
+//
+//        $form = json_encode($form);
+//        $xml = json_encode($xml);
+//        $json = json_encode($json);
+
+//        $data = array($_REQUEST);
+
+//        $counter = 0;
+//
+//        foreach ($_REQUEST as $order) {
+//            echo "Order ";
+//            echo $counter;
+//            echo ") ";
+//            echo $order;
+//            echo "\n";
+//            $counter++;
+//        }
+//        echo $_REQUEST;
+
         return json_encode($_REQUEST);
     }
->>>>>>> fe8bc29fa005267855cf9705b889282c1686471f
 }
