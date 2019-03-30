@@ -41,7 +41,9 @@ class Server extends Controller
 //        $data = array($_REQUEST);
 
         foreach ($_REQUEST as $order) {
+            echo "Oder ";
             echo $counter;
+            echo ") ";
             echo $order;
             echo "\n";
             $counter++;
