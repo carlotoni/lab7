@@ -8,28 +8,29 @@ class Client extends Controller
     public function index() {
         $client = \Config\Services::curlrequest();
 
-//        $form = [
-//            'order' => 'test',
-//            'quantity' => 1,
-//            'price' => 11
-//        ];
+        $form = [
+            'order' => 'test',
+            'quantity' => 1,
+            'price' => 11
+        ];
 
-//        $xml = new \SimpleXMLElement('<order/>');
-//        $xml -> order = 'test2';
-//        $xml -> quantity = 2;
-//        $xml -> price = 12;
-//
-//        $json = json_encode(array("test3", 3, 13));
+        $xml = new \SimpleXMLElement('<order/>');
+        $xml -> order = 'test2';
+        $xml -> quantity = 2;
+        $xml -> price = 12;
 
-        $response = $client->request('POST', 'http://localhost:8080/server/work', [
-            'form_params' => [
-                'order' => 'test',
-                'quantity' => 1,
-                'price' => 11]
-//            $form
-//            $xml,
-//            $json
-        ]);
+        $json = json_encode(array("test3", 3, 13));
+
+        $body = array($form, $xml, $json);
+
+//        $response = $client->request('POST', 'http://localhost:8080/server/work', [
+//            'form_params' => [
+//                'order' => 'test',
+//                'quantity' => 1,
+//                'price' => 11]
+//        ]);
+
+        $response = $client->request('POST', 'http://localhost:8080/server/work', $body);
 
         return $response->getBody();
     }
