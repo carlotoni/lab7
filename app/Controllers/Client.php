@@ -26,10 +26,7 @@ class Client extends Controller
             'form_params' => [
                 'order' => 'test1',
                 'quantity' => 1,
-                'price' => 11,
-                'order' => 'test2',
-                'quantity' => 2,
-                'price' => 22]
+                'price' => 11]
         ]);
 
 //        $response = $client ->setBody(serialize($message))
