@@ -65,7 +65,7 @@ class Server extends Controller
         // Get all headers
         foreach ($this->response->getHeaders() as $name => $value)
         {
-            echo $name .': '. $this->responsee->getHeaderLine($name) ."\n";
+            echo $name .': '. $this->response->getHeaderLine($name) ."\n";
         }
 
         return json_encode($this->response->getBody());
