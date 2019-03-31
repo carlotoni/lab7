@@ -49,21 +49,7 @@ class Server extends Controller
 //            $counter++;
 //        }
 //        return $_REQUEST;
-
-
-//        echo "request: ";
-//        echo json_encode($this->request);
-//        echo "\nresponse: ";
-//        echo json_encode($this->response);
-//        echo "\nlogger: ";
-//        echo json_encode($this->logger);
-
-        $body = $this->response->getBody();
-
-        echo "\nbody: ";
-        echo $body;
-
-        echo "\nPOST: ";
+        
         return json_encode($_POST);
     }
 }
