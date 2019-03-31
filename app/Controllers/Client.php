@@ -21,9 +21,9 @@ class Client extends Controller
 
         $json = json_encode(array("test3", 3, 13));
 
-        $body = array($form, $xml, $json);
+        $message = array($form, $xml, $json);
 
-//        $body = implode(" | ", $message);
+        $body = implode(" | ", $message);
 
 //        $response = $client->request('POST', 'http://localhost:8080/server/work', [
 //            'form_params' =>
