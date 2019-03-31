@@ -54,16 +54,16 @@ class Client extends Controller
                 ]
         ]);
 
-        $client->request('POST', 'http://localhost:8080/server/work', [
-            'form_params' =>
-                [
-                    [
-                        'order' => 'test2',
-                        'quantity' => 2,
-                        'price' => 22
-                    ]
-                ]
-        ]);
+//        $client->request('POST', 'http://localhost:8080/server/work', [
+//            'form_params' =>
+//                [
+//                    [
+//                        'order' => 'test2',
+//                        'quantity' => 2,
+//                        'price' => 22
+//                    ]
+//                ]
+//        ]);
 
 
 //        return $response->getBody();
