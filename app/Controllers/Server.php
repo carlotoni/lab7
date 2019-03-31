@@ -39,18 +39,20 @@ class Server extends Controller
 
         $data = $this->request->getRawInput();
 
-        $json = json_encode($data);
+        return json_encode($data);
 
-        $jsonIterator = new RecursiveIteratorIterator(
-            new RecursiveArrayIterator(json_decode($json, TRUE)),
-            RecursiveIteratorIterator::SELF_FIRST);
-
-        foreach ($jsonIterator as $key => $val) {
-            if(is_array($val)) {
-                echo "$key:\n";
-            } else {
-                echo "$key => $val\n";
-            }
-        }
+//        $json = json_encode($data);
+//
+//        $jsonIterator = new RecursiveIteratorIterator(
+//            new RecursiveArrayIterator(json_decode($json, TRUE)),
+//            RecursiveIteratorIterator::SELF_FIRST);
+//
+//        foreach ($jsonIterator as $key => $val) {
+//            if(is_array($val)) {
+//                echo "$key:\n";
+//            } else {
+//                echo "$key => $val\n";
+//            }
+//        }
     }
 }
