@@ -32,7 +32,7 @@ class Client extends Controller
                 ]
         ]);
 
-        echo $response->getBody();
+        return $response->getBody();
 
 //        $response = $client->request('POST', 'http://localhost:8080/server/work', [
 //            'form_params' =>
