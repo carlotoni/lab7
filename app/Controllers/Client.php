@@ -23,6 +23,7 @@ class Client extends Controller
 
         $body = array($form, $xml, $json);
 
+
 //        $response = $client->request('POST', 'http://localhost:8080/server/work', [
 //            'form_params' =>
 //                [
@@ -37,7 +38,7 @@ class Client extends Controller
 //                ]
 //        ]);
 
-        $response = $client->request('POST', 'http://localhost:8080/server/work', [$body]);
+        $response = $client->request('POST', 'http://localhost:8080/server/work', ['body' => $body]);
 
         return $response->getBody();
     }
