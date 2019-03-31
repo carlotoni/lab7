@@ -41,10 +41,13 @@ class Server extends Controller
 //        $data = array($_REQUEST);
 
         echo $this->counter++;
-        echo $_POST->order;
-        echo $_POST->quantity;
-        echo $_POST->price;
 
-//        return json_encode($_POST);
+        foreach ($_POST as $order)
+        {
+            echo $this->counter;
+            echo $order;
+        }
+
+        return json_encode($_POST);
     }
 }
