@@ -2,6 +2,8 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
+use RecursiveArrayIterator;
+use RecursiveIteratorIterator;
 
 class Server extends Controller
 {
@@ -37,6 +39,18 @@ class Server extends Controller
 
         $data = $this->request->getRawInput();
 
-        echo json_encode($data);
+        $json = json_encode($data);
+
+        $jsonIterator = new RecursiveIteratorIterator(
+            new RecursiveArrayIterator(json_decode($json, TRUE)),
+            RecursiveIteratorIterator::SELF_FIRST);
+
+        foreach ($jsonIterator as $key => $val) {
+            if(is_array($val)) {
+                echo "$key:\n";
+            } else {
+                echo "$key => $val\n";
+            }
+        }
     }
 }
