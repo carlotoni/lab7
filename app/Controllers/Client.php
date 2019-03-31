@@ -8,21 +8,21 @@ class Client extends Controller
     public function index() {
         $client = \Config\Services::curlrequest();
 
-        $form = [
-            'order' => 'test',
-            'quantity' => 1,
-            'price' => 11
-        ];
-
-        $xml = new \SimpleXMLElement('<order/>');
-        $xml -> order = 'test2';
-        $xml -> quantity = 2;
-        $xml -> price = 12;
-        $xml = $xml->asXML();
-
-        $json = json_encode(array("test3", 3, 13));
-
-        $message = array($form, $xml, $json);
+//        $form = [
+//            'order' => 'test',
+//            'quantity' => 1,
+//            'price' => 11
+//        ];
+//
+//        $xml = new \SimpleXMLElement('<order/>');
+//        $xml -> order = 'test2';
+//        $xml -> quantity = 2;
+//        $xml -> price = 12;
+//        $xml = $xml->asXML();
+//
+//        $json = json_encode(array("test3", 3, 13));
+//
+//        $message = array($form, $xml, $json);
 
 //        $body = implode(" | ", $message);
 
@@ -40,10 +40,33 @@ class Client extends Controller
 //                ]
 //        ]);
 
-        $response = $client ->setBody(serialize($message))
-                            ->request('POST', 'http://localhost:8080/server/work');
+//        $response = $client ->setBody(serialize($message))
+//                            ->request('POST', 'http://localhost:8080/server/work');
 
-        return $response->getBody();
+        $client->request('POST', 'http://localhost:8080/server/work', [
+            'form_params' =>
+                [
+                    [
+                    'order' => 'test',
+                    'quantity' => 1,
+                    'price' => 11
+                    ]
+                ]
+        ]);
+
+        $client->request('POST', 'http://localhost:8080/server/work', [
+            'form_params' =>
+                [
+                    [
+                        'order' => 'test2',
+                        'quantity' => 2,
+                        'price' => 22
+                    ]
+                ]
+        ]);
+
+
+//        return $response->getBody();
     }
 }
 
