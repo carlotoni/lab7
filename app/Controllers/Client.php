@@ -27,17 +27,17 @@ class Client extends Controller
 //        $body = implode(" | ", $message);
 
         $response = $client->request('POST', 'http://localhost:8080/server/work', [
-            'form_params' =>
-                [
+            'form_params' => [
                     'order' => 'test',
                     'quantity' => 1,
-                    'price' => 11
-                ],
-                [
-                    'order' => 'test2',
-                    'quantity' => 2,
-                    'price' => 22
-                ]
+                    'price' => 11]
+        ]);
+
+        $response2 = $client->request('POST', 'http://localhost:8080/server/work', [
+            'form_params' => [
+                'order' => 'test2',
+                'quantity' => 2,
+                'price' => 22]
         ]);
 
 //        $response = $client ->setBody(serialize($message))
@@ -66,7 +66,7 @@ class Client extends Controller
 //        ]);
 
 
-        return $response->getBody();
+        return array($response->getBody(), $response2->getBody());
     }
 }
 
