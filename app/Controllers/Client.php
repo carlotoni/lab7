@@ -23,8 +23,8 @@ class Client extends Controller
         $json = json_encode(array("test3", 3, 13));
 
         $message = array($form, $xml, $json);
-//
-//        $body = implode(" | ", $message);
+
+        $body = implode(" | ", $message);
 
 //        $response = $client->request('POST', 'http://localhost:8080/server/work', [
 //            'form_params' =>
@@ -40,7 +40,7 @@ class Client extends Controller
 //                ]
 //        ]);
 
-        $response = $client ->setBody(serialize($message))
+        $response = $client ->setBody($body)
                             ->request('POST', 'http://localhost:8080/server/work');
 
         return $response->getBody();
