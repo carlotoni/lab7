@@ -39,7 +39,7 @@ class Client extends Controller
 //                ]
 //        ]);
 
-        $response = $client ->setBody($json)
+        $response = $client ->setBody(serialize($form))
                             ->request('POST', 'http://localhost:8080/server/work');
 
         return $response->getBody();
