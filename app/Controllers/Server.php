@@ -52,11 +52,11 @@ class Server extends Controller
 
 
         echo "request: ";
-        echo $this->request;
+        echo json_encode($this->request);
         echo "\nresponse: ";
-        echo $this->response;
+        echo json_encode($this->response);
         echo "\nlogger: ";
-        echo $this->logger;
+        echo json_encode($this->logger);
 
         return json_encode($_REQUEST);
     }
