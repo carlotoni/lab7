@@ -39,7 +39,7 @@ class Server extends Controller
 
         $json = $this->request->getJSON(true);
 
-        echo $json;
+        echo json_encode($json);
 
 //        $json = json_encode($data);
 //
