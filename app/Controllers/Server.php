@@ -58,16 +58,15 @@ class Server extends Controller
 //        echo "\nlogger: ";
 //        echo json_encode($this->logger);
 
+        $body = $this->response->getBody();
 
-        // Get a header line
-        echo $this->response->getHeaderLine('Content-Type');
-
-        // Get all headers
-        foreach ($this->response->getHeaders() as $name => $value)
+        if (strpos($this->response->getHeader('content-type'), 'application/json') !== false)
         {
-            echo $name .': '. $this->response->getHeaderLine($name) ."\n";
+            $body = json_decode($body);
         }
 
-        return json_encode($this->response->getBody());
+        echo $body;
+        echo "\nPOST: ";
+        return json_encode($_POST);
     }
 }
