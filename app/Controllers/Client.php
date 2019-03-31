@@ -21,7 +21,7 @@ class Client extends Controller
 
         $json = json_encode(array("test3", 3, 13));
 
-        $message = array($form, $xml, $json);
+        $message = array(implode(", ", $form), implode(", ", $xml), implode(", ", $json));
 
         $body = implode(" | ", $message);
 
