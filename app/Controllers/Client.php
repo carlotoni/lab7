@@ -21,20 +21,12 @@ class Client extends Controller
 //        $xml = $xml->asXML();
 //
 //        $json = json_encode(array("test3", 3, 13));
-//
-//        $message = array($form, $xml, $json);
-
-//        $body = implode(" | ", $message);
 
         $response = $client->request('POST', 'http://localhost:8080/server/work', [
             'form_params' => [
-                    'order' => 'test',
-                    'quantity' => 1,
-                    'price' => 11]
-        ]);
-
-        $response2 = $client->request('POST', 'http://localhost:8080/server/work', [
-            'form_params' => [
+                'order' => 'test1',
+                'quantity' => 1,
+                'price' => 11,
                 'order' => 'test2',
                 'quantity' => 2,
                 'price' => 22]
@@ -54,19 +46,7 @@ class Client extends Controller
 //                ]
 //        ]);
 
-//        $client->request('POST', 'http://localhost:8080/server/work', [
-//            'form_params' =>
-//                [
-//                    [
-//                        'order' => 'test2',
-//                        'quantity' => 2,
-//                        'price' => 22
-//                    ]
-//                ]
-//        ]);
-
-
-        return array($response->getBody(), $response2->getBody());
+        return array($response->getBody());
     }
 }
 
