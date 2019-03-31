@@ -6,35 +6,51 @@ use CodeIgniter\HTTP\CURLRequest;
 class Client extends Controller
 {
     public function index() {
-        $client = \Config\Services::curlrequest();
-
-        $form = [
-            'order' => 'test',
-            'quantity' => 1,
-            'price' => 11
-        ];
+//        $client = \Config\Services::curlrequest();
 //
-//        $xml = new \SimpleXMLElement('<order/>');
-//        $xml -> order = 'test2';
-//        $xml -> quantity = 2;
-//        $xml -> price = 12;
-//        $xml = $xml->asXML();
+//        $form = [
+//            'order' => 'test',
+//            'quantity' => 1,
+//            'price' => 11
+//        ];
+////
+////        $xml = new \SimpleXMLElement('<order/>');
+////        $xml -> order = 'test2';
+////        $xml -> quantity = 2;
+////        $xml -> price = 12;
+////        $xml = $xml->asXML();
+////
+////        $json = json_encode(array("test3", 3, 13));
 //
-//        $json = json_encode(array("test3", 3, 13));
+//        $response = $client ->setBody($form)
+//                            ->request('POST', 'http://localhost:8080/server/work');
+//
+////        $response = $client->request('POST', 'http://localhost:8080/server/work', [
+////            'form_params' =>
+////                [
+////                    ['order' => 'test1',
+////                    'quantity' => 1,
+////                    'price' => 11]
+////                ]
+////        ]);
+//
+//        return $response->getBody();
 
-        $response = $client ->setBody($form)
-                            ->request('POST', 'http://localhost:8080/server/work');
+        $data = array("name" => "Hagrid", "age" => "36");
+        $data_string = json_encode($data);
 
-//        $response = $client->request('POST', 'http://localhost:8080/server/work', [
-//            'form_params' =>
-//                [
-//                    ['order' => 'test1',
-//                    'quantity' => 1,
-//                    'price' => 11]
-//                ]
-//        ]);
+        $ch = curl_init('http://api.local/rest/users');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data_string))
+        );
 
-        return $response->getBody();
+        $result = curl_exec($ch);
+
+        return $result;
     }
 }
 
