@@ -2,7 +2,6 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 use CodeIgniter\API\ResponseTrait;
-use function Sodium\add;
 
 class Server extends Controller
 {
@@ -36,6 +35,6 @@ class Server extends Controller
 //        $xml = json_encode($xml);
 //        $json = json_encode($json);
 
-        return json_encode($_REQUEST);
+        var_dump($this->request->getRawInput());
     }
 }
