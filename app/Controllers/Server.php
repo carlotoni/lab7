@@ -37,10 +37,8 @@ class Server extends Controller
 //        $json = json_encode($json);
 
         $data = json_encode($_POST);
-        $array = json_decode($data);
 
-        print_r($array);
-        echo $array[0];
+        echo $data;
 
 //        return json_encode($_POST);
     }
