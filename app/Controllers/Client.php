@@ -43,7 +43,7 @@ class Client extends Controller
 //        $response = $client ->setBody(serialize($message))
 //                            ->request('POST', 'http://localhost:8080/server/work');
 
-        $client->request('POST', 'http://localhost:8080/server/work', [
+        $response = $client->request('POST', 'http://localhost:8080/server/work', [
             'form_params' =>
                 [
                     [
@@ -66,7 +66,7 @@ class Client extends Controller
 //        ]);
 
 
-//        return $response->getBody();
+        return $response->getBody();
     }
 }
 
