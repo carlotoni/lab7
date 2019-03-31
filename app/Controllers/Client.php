@@ -34,7 +34,7 @@ class Client extends Controller
                 ]
         ]);
 
-        return array($response->getBody());
+        return $response->getBody();
     }
 }
 
