@@ -38,16 +38,16 @@ class Server extends Controller
 
 //        $data = array($_REQUEST);
 
-//        $counter = 0;
-//
-//        foreach ($_REQUEST as $order) {
-//            echo "Order ";
-//            echo $counter;
-//            echo ") ";
-//            echo $order;
-//            echo "\n";
-//            $counter++;
-//        }
+        $counter = 0;
+
+        foreach ($_REQUEST as $order) {
+            echo "Order ";
+            echo $counter;
+            echo ") ";
+            echo $order;
+            echo "\n";
+            $counter++;
+        }
 //        return $_REQUEST;
 
         return json_encode($_REQUEST);
