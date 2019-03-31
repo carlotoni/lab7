@@ -28,11 +28,9 @@ class Client extends Controller
         $response = $client->request('POST', 'http://localhost:8080/server/work', [
             'form_params' =>
                 [
-                    [
-                    'order' => 'test',
+                    ['order' => 'test1',
                     'quantity' => 1,
-                    'price' => 11
-                    ]
+                    'price' => 11]
                 ]
         ]);
 
