@@ -34,14 +34,14 @@ class Client extends Controller
 
         echo $response->getBody();
 
-        $response = $client->request('POST', 'http://localhost:8080/server/work', [
+        $response2 = $client->request('POST', 'http://localhost:8080/server/work', [
             'form_params' =>
                 [
                     ['order' => 'test2', 'quantity' => 2, 'price' => 22]
                 ]
         ]);
 
-        echo $response->getBody();
+        echo $response2->getBody();
 
 //        $data = array("name" => "Hagrid", "age" => "36");
 //        $data_string = json_encode($data);
