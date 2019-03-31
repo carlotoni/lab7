@@ -35,6 +35,6 @@ class Server extends Controller
 //        $xml = json_encode($xml);
 //        $json = json_encode($json);
 
-        echo $this->request->getRawInput();
+        var_dump($this->request->getRawInput());
     }
 }
