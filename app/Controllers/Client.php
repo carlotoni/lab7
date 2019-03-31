@@ -22,15 +22,19 @@ class Client extends Controller
 //
 //        $json = json_encode(array("test3", 3, 13));
 
-        $response = $client->request('POST', 'http://localhost:8080/server/work', [
-            'form_params' => [
-                    'order' => 'test1',
-                    'quantity' => 1,
-                    'price' => 11]
-        ]);
-
 //        $response = $client ->setBody(serialize($message))
 //                            ->request('POST', 'http://localhost:8080/server/work');
+
+        $response = $client->request('POST', 'http://localhost:8080/server/work', [
+            'form_params' =>
+                [
+                    [
+                    'order' => 'test',
+                    'quantity' => 1,
+                    'price' => 11
+                    ]
+                ]
+        ]);
 
         return array($response->getBody());
     }
