@@ -18,7 +18,6 @@ class Server extends Controller
     public function work() {
 
         echo $this->counter;
-        echo $_POST;
         $this->counter++;
 
         return json_encode($_POST);
