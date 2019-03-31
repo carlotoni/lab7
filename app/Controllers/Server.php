@@ -13,13 +13,41 @@ class Server extends Controller
         parent::initController($request, $response, $logger);
     }
 
-    private $counter = 1;
+    protected $counter = 1;
 
     public function work() {
 
-        echo $this->counter;
-        $this->counter++;
+//        $form = [
+//            'order' => 'test',
+//            'quantity' => 1,
+//            'price' => 11
+//        ];
+//
+//        $xml = new \SimpleXMLElement('<order/>');
+//        $xml -> order = 'test2';
+//        $xml -> quantity = 2;
+//        $xml -> price = 12;
+//
+//        $json = array(
+//            'order'=>'test3',
+//            'quantity'=>3,
+//            'price'=>13
+//        );
+//
+//        $form = json_encode($form);
+//        $xml = json_encode($xml);
+//        $json = json_encode($json);
 
-        return json_encode($_POST);
+        $data = array($_POST);
+
+        $counter = 1;
+        foreach ($data as $part)
+        {
+            echo $counter;
+            echo $part;
+            $counter++;
+        }
+
+//        return json_encode($_POST);
     }
 }
