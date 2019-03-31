@@ -37,7 +37,7 @@ class Client extends Controller
 //                ]
 //        ]);
 
-        $response = $client->request('POST', 'http://localhost:8080/server/work', (string) $body);
+        $response = $client->request('POST', 'http://localhost:8080/server/work', [$body]);
 
         return $response->getBody();
     }
