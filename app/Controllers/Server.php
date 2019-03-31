@@ -37,9 +37,9 @@ class Server extends Controller
 //        $xml = json_encode($xml);
 //        $json = json_encode($json);
 
-        $json = $this->request->getJSON();
+        $json = $this->request->getJSON(true);
 
-        return $json;
+        echo $json;
 
 //        $json = json_encode($data);
 //
