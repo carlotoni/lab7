@@ -39,7 +39,7 @@ class Client extends Controller
         $data = array("name" => "Hagrid", "age" => "36");
         $data_string = json_encode($data);
 
-        $ch = curl_init('http://api.local/rest/users');
+        $ch = curl_init('http://localhost:8080/server/work');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
