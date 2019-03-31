@@ -51,13 +51,13 @@ class Server extends Controller
 //        return $_REQUEST;
 
 
-        echo "request: ";
-        echo json_encode($this->request);
-        echo "\nresponse: ";
-        echo json_encode($this->response);
-        echo "\nlogger: ";
-        echo json_encode($this->logger);
+//        echo "request: ";
+//        echo json_encode($this->request);
+//        echo "\nresponse: ";
+//        echo json_encode($this->response);
+//        echo "\nlogger: ";
+//        echo json_encode($this->logger);
 
-        return json_encode($_REQUEST);
+        return json_encode($_POST);
     }
 }
