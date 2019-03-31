@@ -60,12 +60,9 @@ class Server extends Controller
 
         $body = $this->response->getBody();
 
-        if (strpos($this->response->getHeader('content-type'), 'application/json') !== false)
-        {
-            $body = json_decode($body);
-        }
-
+        echo "\nbody: ";
         echo $body;
+
         echo "\nPOST: ";
         return json_encode($_POST);
     }
