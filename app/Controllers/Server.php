@@ -48,8 +48,8 @@ class Server extends Controller
 //            echo "\n";
 //            $counter++;
 //        }
-//        echo $_REQUEST;
+        echo $_REQUEST;
 
-        return json_encode($_REQUEST);
+//        return json_encode($_REQUEST);
     }
 }
