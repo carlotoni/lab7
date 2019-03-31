@@ -50,7 +50,13 @@ class Server extends Controller
 //        }
 //        return $_REQUEST;
 
-        echo "server test";
+
+        echo "request: ";
+        echo $this->request;
+        echo "\nresponse: ";
+        echo $this->response;
+        echo "\nlogger: ";
+        echo $this->logger;
 
         return json_encode($_REQUEST);
     }
