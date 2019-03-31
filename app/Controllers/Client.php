@@ -32,16 +32,16 @@ class Client extends Controller
                 ]
         ]);
 
-        return $response->getBody();
+        echo $response->getBody();
 
-//        $response = $client->request('POST', 'http://localhost:8080/server/work', [
-//            'form_params' =>
-//                [
-//                    ['order' => 'test2', 'quantity' => 2, 'price' => 22]
-//                ]
-//        ]);
-//
-//        echo $response->getBody();
+        $response = $client->request('POST', 'http://localhost:8080/server/work', [
+            'form_params' =>
+                [
+                    ['order' => 'test2', 'quantity' => 2, 'price' => 22]
+                ]
+        ]);
+
+        echo $response->getBody();
 
 //        $data = array("name" => "Hagrid", "age" => "36");
 //        $data_string = json_encode($data);
