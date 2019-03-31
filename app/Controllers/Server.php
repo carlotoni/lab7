@@ -37,6 +37,6 @@ class Server extends Controller
 
         $data = $this->request->getRawInput();
 
-        echo $data;
+        echo json_encode($data);
     }
 }
