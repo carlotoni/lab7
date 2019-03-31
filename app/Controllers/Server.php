@@ -13,6 +13,8 @@ class Server extends Controller
         parent::initController($request, $response, $logger);
     }
 
+    protected $counter = 1;
+
     public function work() {
 
 //        $form = [
@@ -38,18 +40,11 @@ class Server extends Controller
 
 //        $data = array($_REQUEST);
 
-//        $counter = 0;
-//
-//        foreach ($_REQUEST as $order) {
-//            echo "Order ";
-//            echo $counter;
-//            echo ") ";
-//            echo $order;
-//            echo "\n";
-//            $counter++;
-//        }
-//        return $_REQUEST;
-        
-        return json_encode($_POST);
+        echo $this->counter++;
+        echo $_POST->order;
+        echo $_POST->quantity;
+        echo $_POST->price;
+
+//        return json_encode($_POST);
     }
 }
