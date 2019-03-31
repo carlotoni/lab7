@@ -35,12 +35,8 @@ class Server extends Controller
 //        $xml = json_encode($xml);
 //        $json = json_encode($json);
 
-        $order = $this->request->getVar('order');
-        $quantity = $this->request->getVar('quantity');
-        $price = $this->request->getVar('price');
+        $data = $this->request->getRawInput();
 
-        echo $order;
-        echo $quantity;
-        echo $price;
+        echo $data;
     }
 }
