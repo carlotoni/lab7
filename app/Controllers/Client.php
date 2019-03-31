@@ -8,11 +8,11 @@ class Client extends Controller
     public function index() {
         $client = \Config\Services::curlrequest();
 
-//        $form = [
-//            'order' => 'test',
-//            'quantity' => 1,
-//            'price' => 11
-//        ];
+        $form = [
+            'order' => 'test',
+            'quantity' => 1,
+            'price' => 11
+        ];
 //
 //        $xml = new \SimpleXMLElement('<order/>');
 //        $xml -> order = 'test2';
@@ -36,12 +36,17 @@ class Client extends Controller
 
         $response2 = $client->request('POST', 'http://localhost:8080/server/work', [
             'form_params' =>
-                [
-                    ['order' => 'test2', 'quantity' => 2, 'price' => 22]
-                ]
+                $form
         ]);
 
         echo $response2->getBody();
+
+//        $response3 = $client->request('POST', 'http://localhost:8080/server/work', [
+//            'form_params' =>
+//                $json
+//        ]);
+//
+//        echo $response3->getBody();
 
 //        $data = array("name" => "Hagrid", "age" => "36");
 //        $data_string = json_encode($data);
