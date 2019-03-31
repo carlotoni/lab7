@@ -18,6 +18,7 @@ class Client extends Controller
         $xml -> order = 'test2';
         $xml -> quantity = 2;
         $xml -> price = 12;
+        $xml = $xml->asXML();
 
         $json = json_encode(array("test3", 3, 13));
 
@@ -39,7 +40,7 @@ class Client extends Controller
 //                ]
 //        ]);
 
-        $response = $client ->setBody($xml->asXML())
+        $response = $client ->setBody(serialize($message))
                             ->request('POST', 'http://localhost:8080/server/work');
 
         return $response->getBody();
