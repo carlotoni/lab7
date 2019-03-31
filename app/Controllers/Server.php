@@ -50,6 +50,8 @@ class Server extends Controller
 //        }
 //        return $_REQUEST;
 
+        echo "server test";
+
         return json_encode($_REQUEST);
     }
 }

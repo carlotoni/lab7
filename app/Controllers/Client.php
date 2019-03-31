@@ -30,7 +30,10 @@ class Client extends Controller
                 [
                     ['order' => 'test1',
                     'quantity' => 1,
-                    'price' => 11]
+                    'price' => 11,
+                    'order' => 'test2',
+                    'quantity' => 2,
+                    'price' => 22],
                 ]
         ]);
 
