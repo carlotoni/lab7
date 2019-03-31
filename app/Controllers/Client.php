@@ -26,33 +26,33 @@ class Client extends Controller
 
 //        $body = implode(" | ", $message);
 
-//        $response = $client->request('POST', 'http://localhost:8080/server/work', [
-//            'form_params' =>
-//                [
-//                    'order' => 'test',
-//                    'quantity' => 1,
-//                    'price' => 11
-//                ],
-//                [
-//                    'order' => 'test2',
-//                    'quantity' => 2,
-//                    'price' => 22
-//                ]
-//        ]);
+        $response = $client->request('POST', 'http://localhost:8080/server/work', [
+            'form_params' =>
+                [
+                    'order' => 'test',
+                    'quantity' => 1,
+                    'price' => 11
+                ],
+                [
+                    'order' => 'test2',
+                    'quantity' => 2,
+                    'price' => 22
+                ]
+        ]);
 
 //        $response = $client ->setBody(serialize($message))
 //                            ->request('POST', 'http://localhost:8080/server/work');
 
-        $response = $client->request('POST', 'http://localhost:8080/server/work', [
-            'form_params' =>
-                [
-                    [
-                    'order' => 'test',
-                    'quantity' => 1,
-                    'price' => 11
-                    ]
-                ]
-        ]);
+//        $client->request('POST', 'http://localhost:8080/server/work', [
+//            'form_params' =>
+//                [
+//                    [
+//                    'order' => 'test',
+//                    'quantity' => 1,
+//                    'price' => 11
+//                    ]
+//                ]
+//        ]);
 
 //        $client->request('POST', 'http://localhost:8080/server/work', [
 //            'form_params' =>
