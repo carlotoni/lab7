@@ -36,10 +36,6 @@ class Server extends Controller
 //        $xml = json_encode($xml);
 //        $json = json_encode($json);
 
-//        $data = json_encode($_POST);
-
-        echo $_REQUEST;
-
-//        return json_encode($_POST);
+        return json_encode($_REQUEST);
     }
 }
