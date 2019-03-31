@@ -40,7 +40,7 @@ class Server extends Controller
         $array = json_decode($data);
 
         print_r($array);
-        echo $array[0]["order"];
+        echo $array[0];
 
 //        return json_encode($_POST);
     }
