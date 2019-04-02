@@ -8,61 +8,62 @@ class Client extends Controller
     public function index() {
         $client = \Config\Services::curlrequest();
 
-        $form = [
-            'order' => 'test',
-            'quantity' => 1,
-            'price' => 11
-        ];
-//
-//        $xml = new \SimpleXMLElement('<order/>');
-//        $xml -> order = 'test2';
-//        $xml -> quantity = 2;
-//        $xml -> price = 12;
-//        $xml = $xml->asXML();
-//
-//        $json = json_encode(array("test3", 3, 13));
+        $xml = new \SimpleXMLElement('<order/>');
+        $xml -> order = 'test2';
+        $xml -> quantity = 2;
+        $xml -> price = 12;
 
-//        $response = $client ->setBody($form)
-//                            ->request('POST', 'http://localhost:8080/server/work');
-
+//        TODO comment this section to test JSON
         $response = $client->request('POST', 'http://localhost:8080/server/work', [
-            'form_params' =>
-                [
-                    ['order' => 'test1', 'quantity' => 1, 'price' => 11]
-                ]
+            'form_params' => ['order' => 'test', 'quantity' => 9, 'price' => 99],
         ]);
-
         echo $response->getBody();
 
-        $response2 = $client->request('POST', 'http://localhost:8080/server/work', [
-            'form_params' =>
-                $form
-        ]);
+//        TODO Uncomment this section and comment the previous one to test JSON
+//        $response2 = $client->request('POST', 'http://localhost:8080/server/work', [
+//            'json' => ['order' => 'test', 'quantity' => 8, 'price' => 88]
+//        ]);
+//        echo $response2->getBody();
 
-        echo $response2->getBody();
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,'http://localhost:8080/server/work');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $xml->asXML());
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
 
+        $data = curl_exec($ch);
+        echo $data;
+
+//        echo $response1->getBody();
+
+//        $response1 = $client->request('POST', 'http://localhost:8080/server/work', [
+//            'headers' => [
+//                'User-Agent' => 'testing/1.0',
+//                'Accept'     => 'application/json',
+//                'Content-type'=> 'application/json',
+//            ]
+//        ]);
+
+//
+//        $response2 = $client->request('POST', 'http://localhost:8080/server/work', [
+//            'form_params' => $form
+//        ]);
+//
+//        echo $response2->getBody();
+//
 //        $response3 = $client->request('POST', 'http://localhost:8080/server/work', [
-//            'form_params' =>
-//                $json
+//            'xml' => $xml
 //        ]);
 //
 //        echo $response3->getBody();
-
-//        $data = array("name" => "Hagrid", "age" => "36");
-//        $data_string = json_encode($data);
 //
-//        $ch = curl_init('http://localhost:8080/server/work');
-//        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-//        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-//                'Content-Type: application/json',
-//                'Content-Length: ' . strlen($data_string))
-//        );
+//        $response4 = $client->request('POST', 'http://localhost:8080/server/work', [
+//            'json' => $json
+//        ]);
 //
-//        $result = curl_exec($ch);
-//
-//        return $result;
+//        echo $response4->getBody();
     }
 }
 

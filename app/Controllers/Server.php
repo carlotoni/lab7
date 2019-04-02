@@ -14,27 +14,51 @@ class Server extends Controller
 
     public function work() {
 
-//        $form = [
-//            'order' => 'test',
-//            'quantity' => 1,
-//            'price' => 11
-//        ];
-//
-//        $xml = new \SimpleXMLElement('<order/>');
-//        $xml -> order = 'test2';
-//        $xml -> quantity = 2;
-//        $xml -> price = 12;
-//
-//        $json = array(
-//            'order'=>'test3',
-//            'quantity'=>3,
-//            'price'=>13
-//        );
-//
-//        $form = json_encode($form);
-//        $xml = json_encode($xml);
-//        $json = json_encode($json);
+        static $total = 0;
 
-        var_dump($this->request->getRawInput());
+        $data = $_POST;
+
+        $content_type = $_SERVER["CONTENT_TYPE"];
+
+        if (strcmp($content_type, "application/x-www-form-urlencoded")==0)
+        {
+            echo nl2br("Form Content Detected!\r");
+            if(array_key_exists('price', $data) && array_key_exists('quantity', $data))
+            {
+                $total += $_POST["price"] * $_POST["quantity"];
+            } else {
+                echo nl2br("\rWarning no Price and/or quantity included!\r\r");
+            }
+        }
+        if (strcmp($content_type, "application/json")==0)
+        {
+            $data = $this->request->getJSON();
+            echo nl2br("JSON Content Detected!\r");
+            $total += $data->price * $data->quantity;
+        }
+        if (strcmp($content_type, "application/xml")==0)
+        {
+            echo nl2br("XML Content Detected!\r");
+            $data = simplexml_load_string($this->request->getBody());
+        }
+        if (strpos($content_type, "multipart/form-data")!== false)
+        {
+            echo nl2br("Multipart Form-Data Content Detected!\r");
+            $data = simplexml_load_string($this->request->getBody());
+            if(array_key_exists('price', $data) && array_key_exists('quantity', $data))
+            {
+                $total += $_POST["price"] * $_POST["quantity"];
+            } else {
+                echo nl2br("\rWarning no Price and/or quantity included!\r\r");
+            }
+        }
+        echo json_encode($content_type);
+        echo nl2br("\rContent\r");
+        echo json_encode($data);
+        echo nl2br("\r");
+
+        $digits = 5;
+        echo nl2br("\r"."Order #".rand(pow(10, $digits-1), pow(10, $digits)-1));
+        echo nl2br("\r"."TOTAL PRICE: ".$total."\r\r");
     }
 }
